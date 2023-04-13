@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Notes App</title>
+	<link rel="stylesheet" href="style.css">
+	<link rel="shortcut icon" href="keep.png" type="image/x-icon">
+	<script src="https://kit.fontawesome.com/55f1a42b61.js" crossorigin="anonymous"></script>
+
+	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet"
+		integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous">
+
+</head>
+
+<body>
+	<nav class="navbar1">
+		<a href="#" class="navbar-brand1"><img src="keep.png" alt="">Notes</a>
+		<form class="search-form1">
+			<input type="text" id="search" placeholder="Search...">
+			<button type="submit"><i class="fa fa-search"></i></button>
+		</form>
+		<div class="navbtns1">
+			<i class="fa-solid fa-house fa-xl" id="displayNote" style="color: #262627;"></i>
+			<i class="fa-solid fa-note-sticky fa-xl" id="displayTxtNote" style="color: #262627;"></i>
+			<i class="fa-solid fa-bell fa-xl" id="displayReminder"  style="color: #262627;"></i>
+			<i class="fa-solid fa-box-archive fa-xl" id="displayAechive" style="color: #262627;"></i>
+			<i class="fa-solid fa-trash-can fa-xl" id="displayDeleted" style="color: #262627;"></i>
+			<!-- <i class="fa-solid fa-lightbulb fa-xl" style="color: #262627;"></i> -->
+
+		</div>
+
+	</nav>
+	<div class="content">
+		<div class="input-box1">
+			<input type="text" class="textbox" id="textbox1" placeholder="Take a note...">
+			<div class="container0" id="container1">
+				<input type="text" class="textbox" id="addTitle" placeholder="Title...">
+				<span id="title-alert"> </span>
+				<textarea name="" id="addText" cols="30" rows="8" placeholder="Take a note..."></textarea>
+				<span id="text-alert"> </span>
+				<label for="alert-time">Enter time only if you want a remainder(it will be stored in notes with
+					notification):</label>
+				<input type="time" id="alert-time">
+				<span id="time-alert"> </span>
+				<div class="btnContainer">
+
+					<button id="addNote">Add</button>
+					<button id="projectDetails" data-bs-target="#ProjectModal" data-bs-toggle="modal">Know more..</button>
+					<button id="close">Close</button>
+				</div>
+
+			</div>
+		</div>
+		<h1 id="noteSection"></h1>
+		<div id="notes">
+
+			<!-- <div class="note">
+                <button class="deleteNote">Delete</button>
+                <h2 class="title">${notes[i].title ==="" ? 'Note' : notes[i].title }</h1>
+                <p class="text">${notes[i].note} Lorem ipsum, dolor sit amet consectetur adipisicing elit. Repellendus ea ab fuga, inventore delectus nam nemo quis, reprehenderit suscipit, quas saepe eveniet vel modi omnis. Dolor, eum excepturi. Ratione, placeat.</p>
+                </div> -->
+		</div>
+
+	</div>
+
+	
+
+	<!-- reminder modal -->
+
+	<div class="modal fade" id="remainderModal" aria-labelledby="exampleModalToggleLabel" tabindex="-1"
+		style="display: none;" aria-hidden="true">
+		<div class="modal-dialog modal-dialog-centered">
+			<div class="modal-content">
+				<div class="modal-header">
+					<h1 class="modal-title fs-5" id="exampleModalToggleLabel">Remainder</h1>
+					<!-- <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button> -->
+				</div>
+				<div class="modal-body" >
+					<p id="m-details"></p>
+
+				</div>
+				<div class="modal-footer">
+					<button class="btn btn-primary" id="rem-Delete" data-bs-toggle="modal">Delete</button>
+					<button class="btn btn-primary" id="rem-Alter" data-bs-toggle="modal">Remind Later</button>
+					<button class="btn btn-primary" id="rem-Archive" data-bs-toggle="modal">Archive</button>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<!-- edit modal -->
+
+	<div class="modal fade" id="editModal" aria-labelledby="exampleModalToggleLabel" tabindex="-1"
+		style="display: none;" aria-hidden="true">
+		<div class="modal-dialog modal-dialog-centered">
+			<div class="modal-content">
+				<div class="modal-header">
+					<h1 class="modal-title fs-5" id="exampleModalToggleLabel">Note Details</h1>
+					<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+				</div>
+				<div class="modal-body" id="m-details">
+					<label for="m-title">Title:</label>
+					<input type="text" id="m-title" placeholder="Title...">
+					<span id="Mtitle-alert"> </span>
+					<label for="m-text">Note:</label>
+					<textarea name="" id="m-text" cols="30" rows="2" placeholder="Take a note..."></textarea>
+					<span id="Mtext-alert"> </span>
+
+				</div>
+				<div class="modal-footer">
+					<button class="btn btn-primary" id="edit-node"  data-bs-toggle="modal">Save</button>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<!-- Projecct Details Model -->
+
+	<div class="modal fade" id="ProjectModal" aria-labelledby="exampleModalToggleLabel" tabindex="-1"
+		style="display: none;" aria-hidden="true">
+		<div class="modal-dialog modal-dialog-centered">
+			<div class="modal-content">
+				<div class="modal-header">
+					<h1 class="modal-title fs-5" id="exampleModalToggleLabel">Project Details</h1>
+					<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+				</div>
+				<div class="modal-body" id="m-details">
+					<p>Hi,<br>This is Sai Charan B M, I have created a web application using HTML, CSS, Bootstrap, and JavaScript. The app allows users to create two types of notes: normal notes and notes with scheduled reminders. Users can edit, delete, or archive their normal notes. For notes with scheduled reminders, users will receive a notification when the reminder is due. They can then choose to delete the note, archive it, or be reminded later. Archived notes can be restored or permanently deleted.</p>
+
+				</div>
+				<div class="modal-footer">
+					<button class="btn btn-primary"   data-bs-toggle="modal">Close</button>
+				</div>
+			</div>
+		</div>
+	</div>
+
+
+
+	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js"
+		integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe"
+		crossorigin="anonymous"></script>
+	<script src="script.js"></script>
+
+</body>
+
+</html>
+<!-- <div class="noteBtn">
+	<i class="fa-solid fa-box-archive archiveNote" id="${i}" onclick="archiveNode(${i})"></i>
+	<i class="fa-solid fa-trash-can deleteNote" id="${i}" onclick="deleteRemNotes(${i})"></i>
+	<i class="fa-solid fa-pen editNode" id="${i}" onclick="editNode(${i})"></i>
+</div> -->
