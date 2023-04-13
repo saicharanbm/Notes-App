@@ -1,2 +1,2 @@
 # Notes-App
-I have created a web application using HTML, CSS, Bootstrap, and JavaScript.
+I have created a web application using HTML, CSS, Bootstrap, and JavaScript. The app allows users to create two types of notes: normal notes and notes with scheduled reminders. Users can edit, delete, or archive their normal notes. For notes with scheduled reminders, users will receive a notification when the reminder is due. They can then choose to delete the note, archive it, or be reminded later. Archived notes can be restored or permanently deleted.
