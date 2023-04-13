@@ -118,7 +118,10 @@ body{
     font-size: large;
     outline: none;
     border: none;
-    font-weight:lighter;
+    font-weight:bold;
+}
+#addTitle::placeholder{
+  font-weight: lighter;
 }
 span{
     height: 23px;
@@ -292,5 +295,8 @@ margin-top: 15px;
   }
   .container0 {
     width: 90vw;
+  }
+  #addTitle{
+    font-size: medium;
   }
 }
